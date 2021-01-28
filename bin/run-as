@@ -1,0 +1,15 @@
+#!/bin/bash
+
+namespace="kafka"
+kafka_version="0.21.1-kafka-2.7.0"
+
+image=$1
+shift
+
+commands="$@"
+
+kubectl -n $namespace run $image \
+    -ti --image=quay.io/strimzi/kafka:$kafka_version \
+    --rm=true --restart=Never \
+    -- $commands
+
