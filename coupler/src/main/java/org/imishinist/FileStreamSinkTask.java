@@ -1,4 +1,4 @@
-package org.imishinist.coupler;
+package org.imishinist;
 
 import org.apache.kafka.clients.consumer.OffsetAndMetadata;
 import org.apache.kafka.common.TopicPartition;

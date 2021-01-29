@@ -1,4 +1,4 @@
-package org.imishinist.coupler;
+package org.imishinist;
 
 import org.apache.kafka.common.config.AbstractConfig;
 import org.apache.kafka.common.config.ConfigDef;
