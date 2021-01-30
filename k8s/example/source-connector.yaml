@@ -14,3 +14,20 @@ spec:
   config:
     file: "/opt/kafka/LICENSE"
     topic: my-topic
+---
+apiVersion: kafka.strimzi.io/v1alpha1
+kind: KafkaConnector
+metadata:
+  name: coupler-sink-connector
+  labels:
+    # The strimzi.io/cluster label identifies the KafkaConnect instance
+    # in which to create this connector. That KafkaConnect instance
+    # must have the strimzi.io/use-connector-resources annotation
+    # set to true.
+    strimzi.io/cluster: coupler-connect-cluster
+spec:
+  class: org.imishinist.coupler.FileStreamSinkConnector
+  tasksMax: 2
+  config:
+    file: "/tmp/dump"
+    topics: my-topic

@@ -29,3 +29,6 @@ $ ./bin/run-as kafka-producer bin/kafka-console-producer.sh --broker-list couple
 - [ ] static check interface
 - [ ] data source and destination selectable
 - [ ] any language
+
+## Reference
+- https://strimzi.io/blog/2020/01/27/deploying-debezium-with-kafkaconnector-resource/
