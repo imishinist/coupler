@@ -7,7 +7,7 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
 import java.time.Duration;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.Properties;
 
 public class NonClusterConsumer {
@@ -19,13 +19,13 @@ public class NonClusterConsumer {
         properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
 
         KafkaConsumer<String, String> consumer =
-            new KafkaConsumer<String, String>(properties, new StringDeserializer(), new StringDeserializer());
-        consumer.subscribe(Arrays.asList("my-topic"));
+            new KafkaConsumer<>(properties, new StringDeserializer(), new StringDeserializer());
+        consumer.subscribe(Collections.singletonList("my-topic"));
         try {
             while (true) {
-                ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(60l));
+                ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(60L));
                 for (ConsumerRecord<String, String> record :records) {
-                    System.out.println(String.format("%s:%s", record.offset(), record.value()));
+                    System.out.printf("%s:%s%n", record.offset(), record.value());
                 }
                 consumer.commitSync();
             }
