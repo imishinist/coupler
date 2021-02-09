@@ -13,7 +13,7 @@ import java.util.Properties;
 public class NonClusterConsumer {
     public static void main(String[] args) {
         Properties properties = new Properties();
-        properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.10.15:8092");
+        properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.10.115:8092");
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, "java-consumer-group");
         properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
